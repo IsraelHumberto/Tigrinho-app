@@ -4,14 +4,27 @@ import styles from "./page.module.css";
 import { useState, useContext, useEffect } from "react";
 import { useMachineContext } from "./context/MachineContext";
 import { useAccountContext } from "./context/AccountContext";
-import { getResultSymbols, playGame } from "./utils/utils";
+import { getResultSymbols, playGame, getResultWinner } from "./utils/utils";
 import Header from "./components/Header";
 import Deposit from "./components/Deposit";
+import ModalWinner from "./components/ModalWinner";
 
 export default function Home() {
-  const { symbols, result, setResult, messageBet, setMessageBet } =
-    useMachineContext();
+  const {
+    symbols,
+    result,
+    setResult,
+    messageBet,
+    setMessageBet,
+    winner,
+    setWinner,
+  } = useMachineContext();
+
   const { balance, setBalance, bet, setBet } = useAccountContext();
+
+  useEffect(() => {
+    getResultWinner(result, bet, setBalance, setWinner);
+  }, [result]);
 
   return (
     <div className={styles.page}>
@@ -47,6 +60,7 @@ export default function Home() {
       </div>
 
       {messageBet && <div className={styles.message}>{messageBet}</div>}
+      {winner && <ModalWinner />}
     </div>
   );
 }

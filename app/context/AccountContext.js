@@ -1,24 +1,26 @@
-'use client'
-import React, { createContext, useContext, useState } from 'react';
+"use client";
+import React, { createContext, useContext, useState } from "react";
 
 // Create a context
 export const AccountContext = createContext();
 
 // Create a provider component
 export const AccountProvider = ({ children }) => {
-    const [balance, setBalance] = useState(0);
-    const [bet, setBet] = useState(0);
+  const [balance, setBalance] = useState(0);
+  const [bet, setBet] = useState(0);
 
-    return (
-        <AccountContext.Provider value={{
-            balance,
-            setBalance,
-            bet,
-            setBet
-        }}>
-            {children}
-        </AccountContext.Provider>
-    );
+  return (
+    <AccountContext.Provider
+      value={{
+        balance,
+        setBalance,
+        bet,
+        setBet,
+      }}
+    >
+      {children}
+    </AccountContext.Provider>
+  );
 };
 
 export const useAccountContext = () => useContext(AccountContext);

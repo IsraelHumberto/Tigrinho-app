@@ -44,3 +44,13 @@
     font-family: 'Poppins';
     color: var(--orange);
 }
+
+@media screen and (max-width: 600px) {
+    .nameApp {
+        font-size: 24px;
+    }
+
+    .balance {
+        font-size: 16px;
+    }
+}

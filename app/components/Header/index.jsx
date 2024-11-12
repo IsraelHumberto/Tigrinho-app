@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GiTigerHead } from "react-icons/gi";
 import styles from "./header.module.css";
 import { useAccountContext } from "../../context/AccountContext";

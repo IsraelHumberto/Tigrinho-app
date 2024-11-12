@@ -10,6 +10,7 @@ export const MachineProvider = ({ children }) => {
   const [modalDeposit, setModalDeposit] = useState(false);
   const symbols = ["🍒", "🍉", "🍇", "🍓", "🍊"];
   const [messageBet, setMessageBet] = useState("");
+  const [winner, setWinner] = useState(false);
 
   return (
     <MachineContext.Provider
@@ -21,6 +22,8 @@ export const MachineProvider = ({ children }) => {
         setModalDeposit,
         messageBet,
         setMessageBet,
+        winner,
+        setWinner,
       }}
     >
       {children}

@@ -30,3 +30,12 @@ export const playGame = (
   setBalance(balance - bet);
   setResult(getResultSymbols(symbols));
 };
+
+export const getResultWinner = (result, bet, setBalance, setWinner) => {
+  if (result[0] === result[1] && result[1] === result[2] && result[0] !== "") {
+    setBalance((prevstate) => prevstate + bet * 25);
+    setWinner(true);
+  } else {
+    console.log("loser", result);
+  }
+};

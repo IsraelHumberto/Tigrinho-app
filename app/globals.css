@@ -4,10 +4,17 @@
   --brown: #8B4513;
   --red: #B11611;
   --orange: #B57226;
+  --green: #496F5D;
   --maxWidth: 1200px;
   --padding-section: 36px;
 }
 
+@media screen and (max-width: 600px) {
+  :root {
+    --padding-section: 16px;
+  }
+  
+}
 
 html,
 body {
