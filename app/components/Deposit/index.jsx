@@ -20,7 +20,7 @@ const Deposit = () => {
 
         <input
           className={styles.input}
-          type="text"
+          type="number"
           id="depositInput"
           onKeyDown={(event) => {
             if (!/[0-9]/.test(event.key)) {
