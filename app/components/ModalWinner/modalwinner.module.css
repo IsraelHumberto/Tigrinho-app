@@ -42,3 +42,12 @@
     font-weight: 700;
 }
 
+.imageWin {
+    width: 100%;
+    position: relative;
+}
+
+.imageWin img {
+    width: 100%;
+    height: auto;
+}
