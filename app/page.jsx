@@ -46,11 +46,13 @@ export default function Home() {
           className={styles.input}
           type="number"
           id="betInput"
-          onKeyDown={(event) => {
+          value={bet}
+          onChange={(event) => {
             if (!/[0-9]/.test(event.key)) {
               if (event.key === "Backspace") {
                 return;
               }
+              setBet(event.target.value);
               event.preventDefault();
             }
           }}

@@ -7,7 +7,7 @@ export const AccountContext = createContext();
 // Create a provider component
 export const AccountProvider = ({ children }) => {
   const [balance, setBalance] = useState(0);
-  const [bet, setBet] = useState(0);
+  const [bet, setBet] = useState(1);
 
   return (
     <AccountContext.Provider

@@ -9,13 +9,22 @@ const Machine = () => {
   const symbolsImages = [...symbols, ...symbols, ...symbols];
 
   useEffect(() => {
-    console.log(result);
     if (result[0]) {
-      const distanceImages = 141;
+      const isMobile = window.innerWidth <= 600;
+      let distanceImages = 141;
       result.map((item, index) => {
         const position = symbols.findIndex((item) => item === result[index]);
-        const distance =
+
+        let distance =
           distanceImages * position + 704 * (Math.floor(Math.random() * 2) + 1);
+
+        if (isMobile) {
+          distanceImages = 70;
+          distance =
+            distanceImages * position +
+            352 * (Math.floor(Math.random() * 2) + 1);
+        }
+
         const slot = document.getElementById(`slot-${index + 1}`);
         slot.style.transition = `all 1s ease-in-out`;
         slot.style.top = `-${distance}px`;

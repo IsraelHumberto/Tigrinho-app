@@ -20,4 +20,13 @@
 .slotContent {
     position: absolute;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 600px) {
+    .slot {
+        width: 100px;
+        height: 70px;
+    }
 }

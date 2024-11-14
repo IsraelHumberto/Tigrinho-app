@@ -21,7 +21,7 @@ export const playGame = (
     return;
   }
 
-  if (bet === 0) {
+  if (bet == 0) {
     setMessageBet("Digite um valor");
     return;
   }
@@ -33,8 +33,10 @@ export const playGame = (
 
 export const getResultWinner = (result, bet, setBalance, setWinner) => {
   if (result[0] === result[1] && result[1] === result[2] && result[0] !== "") {
-    setBalance((prevstate) => prevstate + bet * 10);
-    setWinner(true);
+    setTimeout(() => {
+      setBalance((prevstate) => prevstate + bet * 10);
+      setWinner(true);
+    }, 1000);
   } else {
     setWinner(false);
   }

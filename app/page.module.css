@@ -17,7 +17,6 @@
     padding: 8px;
     border: 1px solid var(--orange);
     border-radius: 5px;
-    font-size: 14px;
     font-family: 'Poppins';
     color: var(--orange);
 }
@@ -63,7 +62,7 @@
 
 @media screen and (max-width: 600px) {
     .resultIcons {
-        font-size: 68px;
+        font-size: 53px;
     }
 
 }
