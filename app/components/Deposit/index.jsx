@@ -24,6 +24,9 @@ const Deposit = () => {
           id="depositInput"
           onKeyDown={(event) => {
             if (!/[0-9]/.test(event.key)) {
+              if (event.key === "Backspace") {
+                return;
+              }
               event.preventDefault();
             }
           }}

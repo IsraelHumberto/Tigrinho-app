@@ -36,6 +36,6 @@ export const getResultWinner = (result, bet, setBalance, setWinner) => {
     setBalance((prevstate) => prevstate + bet * 10);
     setWinner(true);
   } else {
-    console.log("loser", result);
+    setWinner(false);
   }
 };

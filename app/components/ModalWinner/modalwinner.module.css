@@ -1,4 +1,4 @@
-.container {
+/* .container {
     position: absolute;
     top: 0;
     left: 0;
@@ -8,26 +8,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 350px; */
     background-color: rgba(0, 0, 0, 0.3);
-}
+} */
 
-.modal {
+.container {
     position: relative;
 
     max-width: 300px;
     width: 100%;
 
-    background-color: var(--beige);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
     border-radius: 10px;
     padding: 20px;
+
     
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 16px;
+    gap: 4px;
 }
 
 .title {
@@ -38,23 +35,10 @@
 }
 
 .value {
-    font-size: 36px;
+    font-size: 48px;
     color: var(--green);
     font-family: 'Poppins';
     text-align: center;
+    font-weight: 700;
 }
 
-.resultIcons {
-    font-size: 56px;
-}
-
-.btnClose {
-    font-size: 24px;
-
-    color: var(--beige);
-    background-color: var(--red);
-    padding: 8px 16px ;
-    border: none;
-
-    cursor: pointer;
-}

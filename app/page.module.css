@@ -45,6 +45,11 @@
     border-radius: 0 5px 5px 0;
 }
 
+.btnPlay:disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
 .resultIcons {
     font-size: 106px;
 }

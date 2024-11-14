@@ -13,8 +13,7 @@ const Header = () => {
       <GiTigerHead />
       <h1 className={styles.nameApp}>Tigrinho app</h1>
       <div className={styles.balanceContainer}>
-        <div className={styles.nameUser}>Israel</div>
-        <div className={styles.balance}>R$ {balance}</div>
+        <div className={styles.balance}>R$ {balance},00</div>
         <div className={styles.deposit} onClick={() => setModalDeposit(true)}>
           depositar
         </div>

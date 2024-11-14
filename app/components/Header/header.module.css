@@ -28,7 +28,7 @@
 
 .deposit {
     font-size: 12px;
-    color: var(--orange);
+    color: var(--beige);
     cursor: pointer;
 }
 
@@ -38,12 +38,6 @@
     color: var(--beige);
 }
 
-.nameUser {
-    text-transform: lowercase;
-    font-size: 14px;
-    font-family: 'Poppins';
-    color: var(--orange);
-}
 
 @media screen and (max-width: 600px) {
     .nameApp {

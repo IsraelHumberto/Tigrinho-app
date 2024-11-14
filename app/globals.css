@@ -2,6 +2,7 @@
   --blue: #96C0F5;
   --beige: #DBC2AC;
   --brown: #8B4513;
+  --gray: #707070;
   --red: #B11611;
   --orange: #B57226;
   --green: #496F5D;
@@ -39,4 +40,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }

@@ -8,6 +8,7 @@ import { getResultSymbols, playGame, getResultWinner } from "./utils/utils";
 import Header from "./components/Header";
 import Deposit from "./components/Deposit";
 import ModalWinner from "./components/ModalWinner";
+import Machine from "./components/Machine";
 
 export default function Home() {
   const {
@@ -22,21 +23,37 @@ export default function Home() {
 
   const { balance, setBalance, bet, setBet } = useAccountContext();
 
+  const [disableButton, setDisableButton] = useState(false);
+
   useEffect(() => {
     getResultWinner(result, bet, setBalance, setWinner);
+    setDisableButton(true);
+
+    setTimeout(() => {
+      setDisableButton(false);
+    }, 1200);
   }, [result]);
 
   return (
     <div className={styles.page}>
       <Header />
       <Deposit />
-      <div className={styles.resultIcons}>{result}</div>
+      <div className={styles.resultIcons}>
+        <Machine />
+      </div>
       <div className={styles.betContainer}>
         <input
           className={styles.input}
           type="number"
           id="betInput"
-          maxLength={4}
+          onKeyDown={(event) => {
+            if (!/[0-9]/.test(event.key)) {
+              if (event.key === "Backspace") {
+                return;
+              }
+              event.preventDefault();
+            }
+          }}
           onBlur={(event) => {
             setBet(event.target.value);
           }}
@@ -53,6 +70,7 @@ export default function Home() {
               symbols
             )
           }
+          disabled={disableButton}
           // onClick={() => setResult(getResultSymbols(symbols))}
         >
           Play

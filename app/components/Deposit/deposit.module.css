@@ -65,9 +65,9 @@
     padding: 8px;
     border: 1px solid var(--orange);
     border-radius: 5px;
-    font-size: 14px;
     font-family: 'Poppins';
     text-align: center;
+    color: var(--orange);
 }
 
 .input:focus {
