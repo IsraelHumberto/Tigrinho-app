@@ -1,5 +1,5 @@
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -11,6 +11,7 @@
     padding: 16px var(--padding-section);
     /* max-width: var(--maxWidth); */
     background-color: var(--red);
+    margin-bottom: 36px;
 }
 
 .header svg {

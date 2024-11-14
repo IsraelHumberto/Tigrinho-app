@@ -35,52 +35,54 @@ export default function Home() {
   }, [result]);
 
   return (
-    <div className={styles.page}>
+    <>
       <Header />
-      <Deposit />
-      <div className={styles.resultIcons}>
-        <Machine />
-      </div>
-      <div className={styles.betContainer}>
-        <input
-          className={styles.input}
-          type="number"
-          id="betInput"
-          value={bet}
-          onChange={(event) => {
-            if (!/[0-9]/.test(event.key)) {
-              if (event.key === "Backspace") {
-                return;
+      <div className={styles.page}>
+        <Deposit />
+        <div className={styles.resultIcons}>
+          <Machine />
+        </div>
+        <div className={styles.betContainer}>
+          <input
+            className={styles.input}
+            type="number"
+            id="betInput"
+            value={bet}
+            onChange={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                if (event.key === "Backspace") {
+                  return;
+                }
+                setBet(event.target.value);
+                event.preventDefault();
               }
+            }}
+            onBlur={(event) => {
               setBet(event.target.value);
-              event.preventDefault();
+            }}
+          />
+          <button
+            className={styles.btnPlay}
+            onClick={() =>
+              playGame(
+                bet,
+                balance,
+                setBalance,
+                setMessageBet,
+                setResult,
+                symbols
+              )
             }
-          }}
-          onBlur={(event) => {
-            setBet(event.target.value);
-          }}
-        />
-        <button
-          className={styles.btnPlay}
-          onClick={() =>
-            playGame(
-              bet,
-              balance,
-              setBalance,
-              setMessageBet,
-              setResult,
-              symbols
-            )
-          }
-          disabled={disableButton}
-          // onClick={() => setResult(getResultSymbols(symbols))}
-        >
-          Play
-        </button>
-      </div>
+            disabled={disableButton}
+            // onClick={() => setResult(getResultSymbols(symbols))}
+          >
+            Play
+          </button>
+        </div>
 
-      {messageBet && <div className={styles.message}>{messageBet}</div>}
-      {winner && <ModalWinner />}
-    </div>
+        {messageBet && <div className={styles.message}>{messageBet}</div>}
+        {winner && <ModalWinner />}
+      </div>
+    </>
   );
 }
