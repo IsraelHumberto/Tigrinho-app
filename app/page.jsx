@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Deposit from "./components/Deposit";
 import ModalWinner from "./components/ModalWinner";
 import Machine from "./components/Machine";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 export default function Home() {
   const {
@@ -43,24 +44,44 @@ export default function Home() {
           <Machine />
         </div>
         <div className={styles.betContainer}>
-          <input
-            className={styles.input}
-            type="number"
-            id="betInput"
-            value={bet}
-            onChange={(event) => {
-              if (!/[0-9]/.test(event.key)) {
-                if (event.key === "Backspace") {
-                  return;
+          <div className={styles.inputBet}>
+            <button
+              className={`${styles.btnValueBet} ${styles.btnValueBetMinus}`}
+              onClick={() => setBet(bet - 5)}
+            >
+              <FaMinus />
+            </button>
+            <label className={styles.currencySign}>R$</label>
+            <input
+              className={styles.input}
+              type="number"
+              id="betInput"
+              value={bet}
+              onChange={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  if (event.key === "Backspace") {
+                    return;
+                  }
+                  if (bet === 9999) {
+                    setMessageBet("Valor máximo de aposta: R$ 9999");
+                  } else {
+                    setMessageBet("");
+                  }
+                  setBet(event.target.value);
+                  event.preventDefault();
                 }
+              }}
+              onBlur={(event) => {
                 setBet(event.target.value);
-                event.preventDefault();
-              }
-            }}
-            onBlur={(event) => {
-              setBet(event.target.value);
-            }}
-          />
+              }}
+            />
+            <button
+              className={`${styles.btnValueBet} ${styles.btnValueBetPlus}`}
+              onClick={() => setBet(bet + 5)}
+            >
+              <FaPlus />
+            </button>
+          </div>
           <button
             className={styles.btnPlay}
             onClick={() =>

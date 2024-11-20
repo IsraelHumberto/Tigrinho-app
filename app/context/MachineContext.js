@@ -8,7 +8,13 @@ export const MachineContext = createContext();
 export const MachineProvider = ({ children }) => {
   const [result, setResult] = useState(["", "", ""]);
   const [modalDeposit, setModalDeposit] = useState(false);
-  const symbols = ["🍒", "🍉", "🍇", "🍓", "🍊"];
+  const symbols = [
+    "GiCherry",
+    "GiGrapes",
+    "GiBananaPeeled",
+    "FaAppleAlt",
+    "PiOrangeFill",
+  ];
   const [messageBet, setMessageBet] = useState("");
   const [winner, setWinner] = useState(false);
 

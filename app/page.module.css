@@ -9,15 +9,18 @@
     display: flex;
     position: relative;
     margin-top: 50px;
+    flex-direction: column  ;
 }
 
 .input {
-    width: 100%;
+    width: 180px;
+    height: 50px;
     padding: 8px;
     border: 1px solid var(--orange);
     border-radius: 5px;
     font-family: 'Poppins';
     color: var(--orange);
+    text-align: center;
 }
 
 .input:focus {
@@ -33,19 +36,56 @@
     border: none;
     cursor: pointer;
 
-    position: absolute;
-    right: 0;
-    top: 0;
+    padding: 16px 20px;
 
-    height: 100%;
-    padding: 0 20px;
+    border-radius: 5px;
 
-    border-radius: 0 5px 5px 0;
+    margin-top: 16px;
+
+    transform: translateX(5px);
 }
 
 .btnPlay:disabled {
     background-color: var(--gray);
     cursor: not-allowed;
+}
+.inputBet {
+    display: flex;
+    position: relative;
+    transform: translateX(20px);
+}
+
+.btnValueBet {
+    position: absolute;
+    background-color: var(--red);
+    color: var(--beige);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding: 8px 20px;
+    /* border-radius: 5px; */
+}
+
+.btnValueBetMinus {
+    left: -34px;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px 0 0 5px;
+}
+.btnValueBetPlus {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.currencySign  {
+    font-size: 16px;
+    color: var(--orange);
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .resultIcons {
@@ -63,5 +103,5 @@
     .resultIcons {
         font-size: 53px;
     }
-
+    
 }
