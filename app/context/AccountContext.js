@@ -13,6 +13,8 @@ export const AccountProvider = ({ children }) => {
   useEffect(() => {
     if (bet > 9999) {
       setBet(9999);
+    } else if (bet < 1) {
+      setBet(1);
     }
   }, [bet]);
 

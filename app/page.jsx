@@ -47,7 +47,7 @@ export default function Home() {
           <div className={styles.inputBet}>
             <button
               className={`${styles.btnValueBet} ${styles.btnValueBetMinus}`}
-              onClick={() => setBet(bet - 5)}
+              onClick={() => (bet >= 6 ? setBet(Number(bet) - 5) : setBet(1))}
             >
               <FaMinus />
             </button>
@@ -77,7 +77,7 @@ export default function Home() {
             />
             <button
               className={`${styles.btnValueBet} ${styles.btnValueBetPlus}`}
-              onClick={() => setBet(bet + 5)}
+              onClick={() => setBet(Number(bet) + 5)}
             >
               <FaPlus />
             </button>
