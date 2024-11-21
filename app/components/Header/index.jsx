@@ -3,9 +3,10 @@ import { GiTigerHead } from "react-icons/gi";
 import styles from "./header.module.css";
 import { useAccountContext } from "../../context/AccountContext";
 import { useMachineContext } from "../../context/MachineContext";
+import { BeatLoader } from "react-spinners";
 
 const Header = () => {
-  const { balance } = useAccountContext();
+  const { balance, loading } = useAccountContext();
   const { modalDeposit, setModalDeposit } = useMachineContext();
 
   return (
@@ -13,7 +14,7 @@ const Header = () => {
       <GiTigerHead />
       <h1 className={styles.nameApp}>Tigrinho app</h1>
       <div className={styles.balanceContainer}>
-        <div className={styles.balance}>R$ {balance},00</div>
+        <div className={styles.balance}>{!loading && <>R$ {balance},00</>}</div>
         <div className={styles.deposit} onClick={() => setModalDeposit(true)}>
           depositar
         </div>

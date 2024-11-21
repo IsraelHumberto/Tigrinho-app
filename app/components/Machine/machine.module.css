@@ -2,8 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 32px;
     overflow: hidden;
+    /* padding: 36px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 6px 20px rgba(0, 0, 0, 0.19);
+    border: 10px solid var(--orange);
+    border-radius: 32px;
 }
 
 .slot {
@@ -14,35 +18,38 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    top: 20px;
 }
 
 /* 141px cada imagem */
 .slotContent {
     position: absolute;
-    top:30px;
     left: 50%;
+    top: 0;
     transform: translateX(-50%);
 }
 
 .icon  {
-    width: 100%;
+    width: 115px;
     height: 150px;
     object-fit: cover;
 }
 
 @media screen and (max-width: 600px) {
+    .machine {
+        gap: 16px;
+        border: 3px solid var(--orange);
+    }
     .slot {
         width: 100px;
-        height: 60px;
-    }
-
-    .slotContent {
-        top: 10px;
+        height: 180px;
+        top: -105px;
+    
     }
 
     .icon  {
-        width: 100%;
-        height: 70px;
+        width: 75px;
+        height: 100%;
         object-fit: cover;
     }
 }

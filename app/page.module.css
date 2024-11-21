@@ -88,9 +88,6 @@
     transform: translateY(-50%);
 }
 
-.resultIcons {
-    font-size: 106px;
-}
 
 .message {
     font-size: 12px;
@@ -100,8 +97,6 @@
 
 
 @media screen and (max-width: 600px) {
-    .resultIcons {
-        font-size: 53px;
-    }
+
     
 }

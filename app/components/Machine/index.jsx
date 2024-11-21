@@ -2,20 +2,17 @@ import React, { useEffect } from "react";
 import styles from "./machine.module.css";
 import { useMachineContext } from "../../context/MachineContext";
 import { useAccountContext } from "../../context/AccountContext";
-import {
-  PiSunFill,
-  PiMoonStarsFill,
-  PiShootingStarLight,
-  PiCloudRainFill,
-  PiOrangeFill,
-} from "react-icons/pi";
-import { FaAppleAlt } from "react-icons/fa";
-import { GiBananaPeeled, GiGrapes, GiCherry } from "react-icons/gi";
+
+import RedGrapes from "../Icons/RedGrapes";
+import Bananas from "../Icons/Bananas";
+import Cherry from "../Icons/Cherry";
+import Orange from "../Icons/Orange";
+import Strawberry from "../Icons/Strawberry";
 
 const Machine = () => {
   const { result, symbols } = useMachineContext();
 
-  const symbolsImages = [...symbols, ...symbols, ...symbols];
+  const symbolsImages = [...symbols, ...symbols, ...symbols, ...symbols];
 
   useEffect(() => {
     console.log(result);
@@ -28,11 +25,14 @@ const Machine = () => {
         let distance =
           distanceImages * position + 750 * (Math.floor(Math.random() * 2) + 1);
 
+        // Esse fimal 200 é para ajustar a posição das imagens pois o inicio ta com top -150px
+        // 395 é a altura de cada imagem * a quantidade de imagens: 5
         if (isMobile) {
-          distanceImages = 70;
+          distanceImages = 79;
           distance =
             distanceImages * position +
-            distanceImages * 5 * (Math.floor(Math.random() * 2) + 1);
+            395 * (Math.floor(Math.random() * 2) + 1) -
+            160;
         }
 
         const slot = document.getElementById(`slot-${index + 1}`);
@@ -49,13 +49,11 @@ const Machine = () => {
           {symbolsImages.map((item, index) => {
             return (
               <div key={index} className={styles.icon}>
-                {item === "GiCherry" && <GiCherry color="#8b1818" />}
-                {item === "GiGrapes" && <GiGrapes color="#6F2DA8" />}
-                {item === "GiBananaPeeled" && (
-                  <GiBananaPeeled color="#d6b707" />
-                )}
-                {item === "FaAppleAlt" && <FaAppleAlt color="#D52B1E" />}
-                {item === "PiOrangeFill" && <PiOrangeFill color="#FF7F00" />}
+                {item === "redgrapes" && <RedGrapes />}
+                {item === "banana" && <Bananas />}
+                {item === "cherry" && <Cherry />}
+                {item === "orange" && <Orange />}
+                {item === "strawberry" && <Strawberry />}
               </div>
             );
           })}
@@ -66,13 +64,11 @@ const Machine = () => {
           {symbolsImages.map((item, index) => {
             return (
               <div key={index} className={styles.icon}>
-                {item === "GiCherry" && <GiCherry color="#8b1818" />}
-                {item === "GiGrapes" && <GiGrapes color="#6F2DA8" />}
-                {item === "GiBananaPeeled" && (
-                  <GiBananaPeeled color="#d6b707" />
-                )}
-                {item === "FaAppleAlt" && <FaAppleAlt color="#D52B1E" />}
-                {item === "PiOrangeFill" && <PiOrangeFill color="#FF7F00" />}
+                {item === "redgrapes" && <RedGrapes />}
+                {item === "banana" && <Bananas />}
+                {item === "cherry" && <Cherry />}
+                {item === "orange" && <Orange />}
+                {item === "strawberry" && <Strawberry />}
               </div>
             );
           })}
@@ -83,13 +79,11 @@ const Machine = () => {
           {symbolsImages.map((item, index) => {
             return (
               <div key={index} className={styles.icon}>
-                {item === "GiCherry" && <GiCherry color="#8b1818" />}
-                {item === "GiGrapes" && <GiGrapes color="#6F2DA8" />}
-                {item === "GiBananaPeeled" && (
-                  <GiBananaPeeled color="#d6b707" />
-                )}
-                {item === "FaAppleAlt" && <FaAppleAlt color="#D52B1E" />}
-                {item === "PiOrangeFill" && <PiOrangeFill color="#FF7F00" />}
+                {item === "redgrapes" && <RedGrapes />}
+                {item === "banana" && <Bananas />}
+                {item === "cherry" && <Cherry />}
+                {item === "orange" && <Orange />}
+                {item === "strawberry" && <Strawberry />}
               </div>
             );
           })}
