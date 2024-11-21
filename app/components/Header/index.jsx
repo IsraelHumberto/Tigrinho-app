@@ -3,7 +3,6 @@ import { GiTigerHead } from "react-icons/gi";
 import styles from "./header.module.css";
 import { useAccountContext } from "../../context/AccountContext";
 import { useMachineContext } from "../../context/MachineContext";
-import { BeatLoader } from "react-spinners";
 
 const Header = () => {
   const { balance, loading } = useAccountContext();
