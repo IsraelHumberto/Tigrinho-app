@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 import { useState, useContext, useEffect } from "react";
-import { useMachineContext } from "./context/MachineContext";
-import { useAccountContext } from "./context/AccountContext";
-import { getResultSymbols, playGame, getResultWinner } from "./utils/utils";
-import Header from "./components/Header";
-import Deposit from "./components/Deposit";
-import ModalWinner from "./components/ModalWinner";
-import Machine from "./components/Machine";
+import { useMachineContext } from "../context/MachineContext";
+import { useAccountContext } from "../context/AccountContext";
+import { getResultSymbols, playGame, getResultWinner } from "../utils/utils";
+import Header from "../components/Header";
+import Deposit from "../components/Deposit";
+import ModalWinner from "../components/ModalWinner";
+import Machine from "../components/Machine";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import Admin from "./components/Admin";
+import Admin from "../components/Admin";
 
 export default function Home() {
   const {
@@ -101,11 +101,11 @@ export default function Home() {
           </button>
         </div>
 
-        {/* <footer className={styles.footer}>
-          <Admin />
-        </footer> */}
         {messageBet && <div className={styles.message}>{messageBet}</div>}
         {winner && <ModalWinner />}
+        <footer className={styles.footer}>
+          <Admin />
+        </footer>
       </div>
     </>
   );

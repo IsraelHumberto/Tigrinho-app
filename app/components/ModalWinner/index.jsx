@@ -8,14 +8,19 @@ const ModalWinner = () => {
   const { bet } = useAccountContext();
   const { result, setWinner } = useMachineContext();
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>
-        Parabéns! <br /> Você ganhou...
-      </h2>
-      <div className={styles.value}>R$ {bet * 10}</div>
-      <image className={styles.imageWin}>
+    <div className={styles.overlay}>
+      <div className={styles.container}>
+        <button className={styles.closeModal} onClick={() => setWinner(false)}>
+          X
+        </button>
+        <h2 className={styles.title}>
+          Parabéns! <br /> Você ganhou...
+        </h2>
+        <div className={styles.value}>R$ {bet * 10}</div>
+        {/* <image className={styles.imageWin}>
         <Image src={"/assets/raissa-feliz.jpg"} width={1000} height={1000} />
-      </image>
+        </image> */}
+      </div>
     </div>
   );
 };

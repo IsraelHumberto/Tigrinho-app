@@ -1,4 +1,24 @@
 export const getResultSymbols = (symbols) => {
+  const difficult = localStorage.getItem("difficult");
+  const firstResult = symbols[Math.floor(Math.random() * symbols.length)];
+  let symbolsToUse = symbols;
+
+  switch (difficult) {
+    case "green":
+      return [firstResult, firstResult, firstResult];
+    case "red":
+      symbolsToUse = symbols.filter((symbol) => symbol !== firstResult);
+      break;
+  }
+
+  const allCombinations = [];
+
+  for (let j = 0; j < symbols.length; j++) {
+    for (let k = 0; k < symbols.length; k++) {
+      allCombinations.push([firstResult, symbols[j], symbols[k]]);
+    }
+  }
+
   const result = [
     symbols[Math.floor(Math.random() * symbols.length)],
     symbols[Math.floor(Math.random() * symbols.length)],

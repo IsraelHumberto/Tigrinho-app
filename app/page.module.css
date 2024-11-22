@@ -95,8 +95,24 @@
     margin-top: 8px;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    padding: 26px;
+    background-color: var(--orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--beige);
+    font-size: 12px;
+    font-family: 'Poppins';
+}
+
 
 @media screen and (max-width: 600px) {
-
-    
+    .footer {
+        width: 100%;
+    }
 }

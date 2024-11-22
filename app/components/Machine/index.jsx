@@ -15,7 +15,6 @@ const Machine = () => {
   const symbolsImages = [...symbols, ...symbols, ...symbols, ...symbols];
 
   useEffect(() => {
-    console.log(result);
     if (result[0]) {
       const isMobile = window.innerWidth <= 600;
       let distanceImages = 150;

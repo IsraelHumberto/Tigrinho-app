@@ -1,0 +1,32 @@
+.header {
+    margin-bottom: 16px;
+}
+
+.checkboxOnOff {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: background-color .3s;
+}
+
+.labelOnoff, .labelCondition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.selectCondition {
+    width: 100px;
+    height: 25px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    padding: 0 8px;
+    font-family: 'Poppins';
+    font-size: 14px;
+    color: #333;
+}
