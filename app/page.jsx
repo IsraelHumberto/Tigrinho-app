@@ -4,7 +4,12 @@ import styles from "./page.module.css";
 import { useState, useContext, useEffect } from "react";
 import { useMachineContext } from "./context/MachineContext";
 import { useAccountContext } from "./context/AccountContext";
-import { getResultSymbols, playGame, getResultWinner } from "./utils/utils";
+import {
+  getResultSymbols,
+  playGame,
+  getResultWinner,
+  getQtdPossibleResults,
+} from "./utils/utils";
 import Header from "./components/Header";
 import Deposit from "./components/Deposit";
 import ModalWinner from "./components/ModalWinner";
@@ -21,6 +26,9 @@ export default function Home() {
     setMessageBet,
     winner,
     setWinner,
+    homeAmount,
+    setHomeAmount,
+    setChanceWin,
   } = useMachineContext();
 
   const { balance, setBalance, bet, setBet } = useAccountContext();
@@ -28,13 +36,23 @@ export default function Home() {
   const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
-    getResultWinner(result, bet, setBalance, setWinner);
+    if (result[0] !== "" && result[1] !== "" && result[2] !== "") {
+      getResultWinner(result, bet, setBalance, setWinner, setHomeAmount);
+    }
     setDisableButton(true);
-
-    setTimeout(() => {
-      setDisableButton(false);
-    }, 1200);
+    setTimeout(() => setDisableButton(false), 1000);
   }, [result]);
+
+  useEffect(() => {
+    const localStorage = window.localStorage.getItem("difficult");
+    if (localStorage) {
+      window.localStorage.setItem("difficult", "");
+    }
+  }, []);
+
+  useEffect(() => {
+    getQtdPossibleResults(homeAmount, bet, setChanceWin);
+  }, [bet, result]);
 
   return (
     <>
@@ -72,9 +90,7 @@ export default function Home() {
                   event.preventDefault();
                 }
               }}
-              onBlur={(event) => {
-                setBet(event.target.value);
-              }}
+              onBlur={() => getQtdPossibleResults(homeAmount, bet)}
             />
             <button
               className={`${styles.btnValueBet} ${styles.btnValueBetPlus}`}
@@ -101,9 +117,6 @@ export default function Home() {
           </button>
         </div>
 
-        {/* <footer className={styles.footer}>
-          <Admin />
-        </footer> */}
         {messageBet && <div className={styles.message}>{messageBet}</div>}
         {winner && <ModalWinner />}
       </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 // Create a context
 export const MachineContext = createContext();
@@ -11,6 +11,19 @@ export const MachineProvider = ({ children }) => {
   const symbols = ["redgrapes", "banana", "cherry", "orange", "strawberry"];
   const [messageBet, setMessageBet] = useState("");
   const [winner, setWinner] = useState(false);
+  const [homeAmount, setHomeAmount] = useState(200);
+  const [chanceWin, setChanceWin] = useState(25);
+
+  useEffect(() => {
+    const storedHomeAmount = localStorage.getItem("homeAmount");
+    if (storedHomeAmount) {
+      setHomeAmount(parseFloat(storedHomeAmount));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("homeAmount", homeAmount);
+  }, [homeAmount]);
 
   return (
     <MachineContext.Provider
@@ -24,6 +37,10 @@ export const MachineProvider = ({ children }) => {
         setMessageBet,
         winner,
         setWinner,
+        homeAmount,
+        setHomeAmount,
+        chanceWin,
+        setChanceWin,
       }}
     >
       {children}

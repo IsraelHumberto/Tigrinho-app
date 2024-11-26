@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./admin.module.css";
+import Chances from "./Chances";
+import { useMachineContext } from "../../context/MachineContext";
 
 const Admin = () => {
+  const { homeAmount } = useMachineContext();
   const [status, setStaus] = useState(false);
   const [condition, setCondition] = useState("green");
   useEffect(() => {
@@ -39,6 +42,12 @@ const Admin = () => {
           </select>
         </div>
       )}
+
+      <Chances conditions={condition} status={status} />
+      <div className={styles.homeAmountContainer}>
+        <div>Valor da casa</div>
+        <span className={styles.homeAmount}>R$ {homeAmount}</span>
+      </div>
     </div>
   );
 };
